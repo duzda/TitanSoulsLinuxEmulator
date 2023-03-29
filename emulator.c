@@ -43,17 +43,17 @@ static int parse_opt(int key, char *arg, struct argp_state *state)
         break;
     case 's':
         if (strlen(arg) == 2) {
-            if (arg[0] != '1' || arg[1] < '1' || arg[1] > '5') {
+            if (arg[0] != '1' || arg[1] < '0' || arg[1] > '5') {
                 printf("Error while parsing sensitivity.\nDefaulting to 8\n");
             }
             absMultiplier = 10 + arg[1] - '0';
         } else if (strlen(arg) == 1) {
             if (arg[0] < '1' || arg[0] > '9') {
-                printf("yyyError while parsing sensitivity.\nDefaulting to 8\n");
+                printf("Error while parsing sensitivity.\nDefaulting to 8\n");
             }
             absMultiplier = arg[0] - '0';
         } else {
-            printf("zzzError while parsing sensitivity.\nDefaulting to 8\n");
+            printf("Error while parsing sensitivity.\nDefaulting to 8\n");
         }
         if (absMultiplier > 15) absMultiplier = 15;
         else if (absMultiplier < 1) absMultiplier = 1; 
